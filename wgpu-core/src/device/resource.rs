@@ -4200,11 +4200,6 @@ impl Device {
             None => None,
         };
 
-        if !pipeline_expects_dual_source_blending && shader_expects_dual_source_blending {
-            return Err(
-                pipeline::CreateRenderPipelineError::ShaderExpectsPipelineToUseDualSourceBlending,
-            );
-        }
         if pipeline_expects_dual_source_blending && !shader_expects_dual_source_blending {
             return Err(
                 pipeline::CreateRenderPipelineError::PipelineExpectsShaderToUseDualSourceBlending,
